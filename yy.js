@@ -22,9 +22,9 @@ ii = ['3']//me
 yy = ['4']
 zz = ['5']
 cc = ['6']
-pp = ['7']//heaven
-xx = ['8']//mate
-oo = ['9']//rhyme
+pp = ['7']
+xx = ['8']
+oo = ['9']
 tt = ['a']
 qq = ['b']
 gg = ['c']
@@ -49,7 +49,7 @@ for (i = 0; i < myList.length; i++) {
   alert(myList[i]);
   at += myList[i];
 }
-function flagEgidenYOL(hex) {//Delan Azabani
+function flagEgidenYOL(hex) {
     //var hex = hexx.toString();//force conversion
     var str = '';
     for (var i = 0; (i < hex.length && hex.substr(i, 2) !== '00'); i += 2)
