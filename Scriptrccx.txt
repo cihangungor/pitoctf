@@ -1,0 +1,37 @@
+//---- [2] search param window for utf8 input string ----
+$count_system = 0
+$count_sti = 0
+
+loop:
+$res = 0
+sti
+inc $count_sti
+log "$count_sti: {$count_sti}"
+$module_type = mod.party(rip)  
+log "current addr: {rip}, type: {$module_type}"
+cmp $module_type, 1
+je run_to_user
+
+$rcx_value =  rcx //rcx yoksa diğerlerine bak
+log "searching str at {$rcx_value}"
+$res = strstr(utf8($rcx_value), "123456789abcde") //--replace with the str you entered
+log "search result: {$res}"
+cmp $res, 1
+je str_found
+jmp loop
+ret
+
+run_to_user:
+inc $count_system
+log "$count_system: {$count_system}"
+rtu 
+jmp loop
+ret
+
+str_found:
+log "FOUND"
+pause
+ret
+
+notfound_exit:
+log "aob not found"
