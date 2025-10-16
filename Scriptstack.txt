@@ -1,0 +1,19 @@
+loop: 
+$res = 0 //string bulunursa 1 olacak
+sti // 1 adım git
+$addr = [rsp] //stacke bak. Köşeli parantezin anlamı rsp adresinin içindeki veriyi al demek.
+log "searching str at {$addr}" 
+$res = strstr(utf8($addr), "this") //this kelimesi var mı bak, res varsa 1 yoksa 0 olacak.
+log "search result: {$res}" 
+cmp $res, 1 
+je str_found 
+jmp loop 
+ret 
+
+error_setbp: 
+log "UNABLE to set bp" 
+ret 
+
+str_found: 
+log "FOUND at {$addr}" 
+pause 
